@@ -277,7 +277,6 @@ public class EDITOR_WindowManager : Editor
         WindowManager WM = (WindowManager)target;
         Window[] Windows = WM.GetWindows();
 
-
         if (GUILayout.Button("Get windows"))
         {
             WM.OnEnable();
