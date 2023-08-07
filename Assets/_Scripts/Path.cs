@@ -159,6 +159,20 @@ public class Path : MonoBehaviour
             travel.transform.parent = travelPointsHolder.transform; 
         }
     }
+
+    public GameObject[] GetAllPoints()
+    {
+        GameObject[] g = new GameObject[middlePoints.Length + 2];
+        int i = 0;
+        g[i++] = startPoint;
+        foreach(GameObject point in middlePoints)
+        {
+            g[i++] = point;
+        }
+        g[i] = endPoint;
+
+        return g;
+    }
 }
 
 #if UNITY_EDITOR

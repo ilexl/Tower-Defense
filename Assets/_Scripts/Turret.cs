@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Turret : MonoBehaviour
+[CreateAssetMenu(menuName = "Game/Turret")]
+public class Turret : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject modelPrefab;
+    public GameObject projectilePrefab;
+    public float damage;
+    public Sprite icon;
 
-    // Update is called once per frame
-    void Update()
+    public Turret(GameObject _modelPrefab, GameObject _projectilePrefab, float _damage, Sprite _icon)
     {
-        
+        modelPrefab = _modelPrefab;
+        projectilePrefab = _projectilePrefab;
+        damage = _damage;
+        icon = _icon;
     }
 }

@@ -4,15 +4,55 @@ using UnityEngine;
 
 public class FollowPath : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Path path;
+    [SerializeField] GameObject[] allPoints;
+    [SerializeField] Enemy stats;
+    float speed = 1f; // default is no speed found is 1f
+    int followInternal;
+    public void SetPath(Path _path)
     {
-        
+        path = _path;
+        allPoints = path.GetAllPoints();
+        followInternal = 0;
+        transform.position = allPoints[0].transform.position; // set position to start
+
+        bool success = TryGetComponent<Enemy>(out stats);
+        if(success)
+        {
+            speed = stats.speed;
+        }
+        else
+        {
+            Debug.LogWarning("No enemy script attached to enemy - default stats apply");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(path == null) return;
+
+        // set rotation
+        transform.LookAt(allPoints[followInternal].transform);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0); // only need y rotation
+
+        transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
+        float distance = Vector3.Distance(transform.position, allPoints[followInternal].transform.position);
+        Debug.Log(distance);
+        if(distance < 0.05f)
+        {
+            if(followInternal == allPoints.Length - 1)
+            {
+                // lose a life
+                Debug.Log("You lost a life!");
+                gameObject.SetActive(false); // destroys this gameobject
+            }
+            else
+            {
+                followInternal++; // goto next point
+            }
+        }
+            
+
     }
 }

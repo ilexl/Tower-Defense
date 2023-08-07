@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Test-Level
+  m_EditorClassIdentifier: Game::SpawnManager/PathSpawn
+  path: {fileID: 0}
+  enemy:
+  - {fileID: 1772048477452807684, guid: beef2f7a0fc8526409a6a87f0d3f47f8, type: 3}
+  timeBetweenEnemy:
+  - 0.1
