@@ -13,6 +13,11 @@ public class TurretManager : MonoBehaviour
     [SerializeField] Turret buildingTurret;
     int moveInternal = 0; // 0 no move - 1 move up - 2 move down - 3 check
 
+    public Turret GetCurrent() { return currentTurret; }
+    public Turret GetBuilding() { return buildingTurret; }
+
+    public GameObject GetTurretModel() { return model; }
+
     private void Awake()
     {
         state = State.Inactive;

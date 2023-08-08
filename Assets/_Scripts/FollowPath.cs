@@ -27,6 +27,18 @@ public class FollowPath : MonoBehaviour
         }
     }
 
+    public float RemainingDistance()
+    {
+        if (path == null) return 0f;
+
+        float distance = 0f;
+        for (int i = followInternal ; i < allPoints.Length -1; i++)
+        {
+            distance += Vector3.Distance(transform.position, allPoints[i].transform.position);
+        }
+        return distance;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -38,7 +50,6 @@ public class FollowPath : MonoBehaviour
 
         transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
         float distance = Vector3.Distance(transform.position, allPoints[followInternal].transform.position);
-        Debug.Log(distance);
         if(distance < 0.05f)
         {
             if(followInternal == allPoints.Length - 1)
