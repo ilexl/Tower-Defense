@@ -19,11 +19,11 @@ public class FollowPath : MonoBehaviour
         bool success = TryGetComponent<Enemy>(out stats);
         if(success)
         {
-            speed = stats.speed;
+            speed = stats.GetSpeed();
         }
         else
         {
-            Debug.LogWarning("No enemy script attached to enemy - default stats apply");
+            Debug.LogWarning("No enemy script attached to this entity");
         }
     }
 
