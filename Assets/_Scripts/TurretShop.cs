@@ -106,6 +106,7 @@ public class TurretShop : MonoBehaviour
                     element.GetComponent<Button>().interactable = true; // grey out while constructing
                 }
             }
+            AddTurretShop(bin);
 
             // -----------
             state = tm.name + "A";

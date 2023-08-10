@@ -88,6 +88,14 @@ public class TurretManager : MonoBehaviour
                 // create model of new turret
                 if (model == null)
                 {
+                    // check if null
+                    if(buildingTurret.modelPrefab == null)
+                    {
+                        buildingTurret = null;
+                        currentTurret = null;
+                        return;
+                    }
+
                     model = GameObject.Instantiate(buildingTurret.modelPrefab, modelParent);
                     model.transform.localScale = Vector3.one * 0.5f;
                     model.transform.position = bottomPos.position;
