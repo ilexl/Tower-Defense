@@ -24,6 +24,7 @@ public class TurretShop : MonoBehaviour
     {
         GameObject element = GameObject.Instantiate(turretUIPrefab, this.transform);
         element.GetComponent<Image>().sprite = t.icon;
+        element.GetComponent<TurretUI>().turret = t;
         element.GetComponent<Button>().enabled = true;
         element.GetComponent<Button>().onClick.AddListener(delegate ()
         {

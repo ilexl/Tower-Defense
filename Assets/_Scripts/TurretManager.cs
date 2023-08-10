@@ -12,6 +12,13 @@ public class TurretManager : MonoBehaviour
     [SerializeField] Turret currentTurret;
     [SerializeField] Turret buildingTurret;
     int moveInternal = 0; // 0 no move - 1 move up - 2 move down - 3 check
+    [Space]
+    [SerializeField] GameObject rangeShow;
+    [SerializeField] BoxCollider mouseCollider;
+    [SerializeField] float rangeHeight = 5f;
+    [SerializeField] bool rangeShown;
+    [SerializeField] bool customRangeShown;
+    [SerializeField] float customRange;
 
     public Turret GetCurrent() { return currentTurret; }
     public Turret GetBuilding() { return buildingTurret; }
@@ -122,12 +129,14 @@ public class TurretManager : MonoBehaviour
         {
             case State.Active:
             {
+                MouseArea(true);
                 Active();
                 break;
             }
                 
             case State.Construction:
             {
+                MouseArea(true);
                 Construction();
                 break;
             }
@@ -135,9 +144,55 @@ public class TurretManager : MonoBehaviour
             default:
             case State.Inactive:
             {
-                return; // return to stop unwasted processing power
+                MouseArea(false);
+                break; // return to stop unwasted processing power
             }
+        }
+        
+        if (rangeShown)
+        {
+            if (state == State.Construction)
+            {
+                rangeShow.SetActive(false);
+                return;
+            }
+            rangeShow.SetActive(true);
+            
+            if (customRangeShown)
+            {
+                Debug.Log("custom here");
+                ShowRange(customRange);
+                customRangeShown = false;
+                customRange = 0;
+            }
+            else if(currentTurret != null)
+            {
+                //if(currentTurret == null) { return; }
+                ShowRange(currentTurret.range);
+            }
+            else
+            {
+                rangeShow.SetActive(false);
+            }
+            rangeShown = false;
+        }
+        else
+        {
+            rangeShow.SetActive(false);
+        }
+    }
 
+    void MouseArea(bool isLarge)
+    {
+        if (isLarge)
+        {
+            mouseCollider.center = new Vector3(0, 0.7f, 0);
+            mouseCollider.size = new Vector3(1, 1.5f, 1);
+        }
+        else
+        {
+            mouseCollider.center = new Vector3(0, 0.2f, 0);
+            mouseCollider.size = new Vector3(1, 0.5f, 1);
         }
     }
 
@@ -148,4 +203,20 @@ public class TurretManager : MonoBehaviour
         buildingTurret = toConstruct;
     }
     
+    public void ShowRange(bool shown)
+    {
+        rangeShown = shown;
+    }
+
+    public void ShowRangeCustom(bool shown, float _customRange)
+    {
+        rangeShown = shown;
+        customRangeShown = shown;
+        customRange = _customRange;
+    }
+
+    private void ShowRange(float range)
+    {
+        rangeShow.transform.localScale = new Vector3(range, rangeHeight, range);
+    }
 }
