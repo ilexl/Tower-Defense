@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToEnd: 0
-  speed: 1
+  speed: 3
   health: 100
   Canvas: {fileID: 3185422917890694086}
   healthBar: {fileID: 2767698923340813363}

@@ -18,3 +18,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f6758df3fb0f66346b3e22981f81723b, type: 3}
   range: 15
   reloadTime: 10
+  projectileSpeed: 10

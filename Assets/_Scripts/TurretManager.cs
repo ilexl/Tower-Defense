@@ -160,7 +160,7 @@ public class TurretManager : MonoBehaviour
             
             if (customRangeShown)
             {
-                Debug.Log("custom here");
+                //Debug.Log("custom here");
                 ShowRange(customRange);
                 customRangeShown = false;
                 customRange = 0;

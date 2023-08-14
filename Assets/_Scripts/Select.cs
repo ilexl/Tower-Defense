@@ -42,6 +42,7 @@ public class Select : MonoBehaviour
         }
         else
         {
+            if(selected == null) { return; }
             PointerEventData pointerEventData = new(EventSystem.current)
             {
                 position = Input.mousePosition
@@ -49,36 +50,19 @@ public class Select : MonoBehaviour
             var raycastResults = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointerEventData, raycastResults);
 
+            if (selected.TryGetComponent<TurretManager>(out TurretManager tm)) { tm.ShowRange(true); }
+            else { return; }
+
             foreach (var result in raycastResults)
             {
                 
                 bool valid = result.gameObject.TryGetComponent<TurretUI>(out TurretUI tUI);
                 if (valid)
                 {
-                    
-                    if (selected.TryGetComponent<TurretManager>(out TurretManager tm))
-                    {
-                        tm.ShowRangeCustom(true, tUI.turret.range);
-                    }
+                    tm.ShowRangeCustom(true, tUI.turret.range);
                 }
             }
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
-            {
-                if (IsMouseOverUI())
-                {
-                    // Do nothing
-                }
-                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Selectable") && !IsMouseOverUI())
-                {
-                    Transform possTurret = hit.transform;
-                    if (possTurret.TryGetComponent<TurretManager>(out TurretManager tm))
-                    {
-                        tm.ShowRange(true);
-                    }
-                }
-            }
         }
     }
 

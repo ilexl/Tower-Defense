@@ -9,6 +9,11 @@ public class TurretTargeting : MonoBehaviour
     [SerializeField] float idleRotateSpeed = 0;
     [SerializeField] GameObject currentTarget;
     [SerializeField] Transform EnemiesParent;
+    [Space]
+    [SerializeField] float currentReloadTime;
+    [SerializeField] GameObject projectilesParent;
+    [SerializeField] float midHeight;
+    [SerializeField] GameObject emptyPrefab;
 
     // Update is called once per frame
     void Update()
@@ -47,6 +52,39 @@ public class TurretTargeting : MonoBehaviour
         {
             manager.GetTurretModel().transform.Rotate(new Vector3(0, Time.deltaTime * idleRotateSpeed, 0));
         }
+
+        if(manager.GetState() != TurretManager.State.Active) { return; }
+
+        if(currentReloadTime <= 0f)
+        {
+            if(currentTarget == null) {  return; }
+            currentReloadTime = turret.reloadTime;
+            SpawnProjectile(currentTarget, turret);
+        }
+        else
+        {
+            currentReloadTime -= Time.deltaTime;
+        }
+    }
+
+    void SpawnProjectile(GameObject target, Turret turret)
+    {
+        // calculate mid height target
+        Vector3 diff = (target.transform.position - transform.position) / 2;
+        Vector3 midPos = transform.position + diff; // ------------------------------------------------------
+        GameObject midPoint = Instantiate(emptyPrefab, projectilesParent.transform);
+        midPoint.transform.position = midPos;
+
+        // create prefab
+        GameObject projectile = Instantiate(turret.projectilePrefab, projectilesParent.transform);
+        projectile.AddComponent(typeof(TurretProjectile));
+        TurretProjectile tp = projectile.GetComponent<TurretProjectile>();
+
+        // set position and variables
+        tp.transform.position = transform.position;
+        tp.projectileSpeed = turret.projectileSpeed;
+        tp.damage = turret.damage;
+        tp.targetPositions = new List<GameObject> { midPoint, target };
     }
 
 

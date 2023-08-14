@@ -26,9 +26,12 @@ public class Enemy : MonoBehaviour
         distanceToEnd = GetComponent<FollowPath>().RemainingDistance();
         Canvas.transform.LookAt(Camera.main.transform.position);
         Canvas.transform.Rotate(new Vector3(0, 180, 0));
+        healthBar.GetComponent<Slider>().value = health;
 
-
-        healthBar.gameObject.GetComponent<UnityEngine.UI.Slider>().value = health;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(int damage)
