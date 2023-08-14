@@ -18,19 +18,6 @@ public class SpawnManager : MonoBehaviour
     int waveInternal = 0;
     float lastSpawnTime = 0;
 
-    [CreateAssetMenu(menuName = "Game/Wave")]
-    public class PathSpawn : ScriptableObject
-    {
-        public GameObject[] enemy;
-        public float[] timeBetweenEnemy;
-
-        public PathSpawn(GameObject[] _enemy, float[] _timeBetweenEnemy)
-        {
-            enemy = _enemy;
-            timeBetweenEnemy = _timeBetweenEnemy;
-        }
-    }
-
     public void Wave(PathSpawn spawn)
     {
         waveInternal = 0;
@@ -61,6 +48,7 @@ public class SpawnManager : MonoBehaviour
                 {
                     // Spawn next enemy on this path
                     SpawnOnPath(currentWave.enemy[waveInternal], path);
+                    lastSpawnTime = 0;
                     waveInternal++;
                 }
                 else

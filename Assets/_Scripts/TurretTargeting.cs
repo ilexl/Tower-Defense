@@ -78,7 +78,7 @@ public class TurretTargeting : MonoBehaviour
     {
         // calculate mid height target
         Vector3 diff = (target.transform.position - transform.position) / 2;
-        Vector3 midPos = transform.position + diff; // ------------------------------------------------------
+        Vector3 midPos = transform.position + diff + new Vector3(0, midHeight, 0); // ------------------------------------------------------
         GameObject midPoint = Instantiate(emptyPrefab, projectilesParent.transform);
         midPoint.transform.position = midPos;
 

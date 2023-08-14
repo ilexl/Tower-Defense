@@ -8,7 +8,8 @@ public class FollowPath : MonoBehaviour
     [SerializeField] GameObject[] allPoints;
     [SerializeField] Enemy stats;
     float speed = 1f; // default is no speed found is 1f
-    int followInternal;
+    [SerializeField]int followInternal;
+    [SerializeField] float believedDistance;
     public void SetPath(Path _path)
     {
         path = _path;
@@ -46,11 +47,12 @@ public class FollowPath : MonoBehaviour
 
         // set rotation
         transform.LookAt(allPoints[followInternal].transform);
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0); // only need y rotation
+        //transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0); // only need y rotation
 
         transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
         float distance = Vector3.Distance(transform.position, allPoints[followInternal].transform.position);
-        if(distance < 0.05f)
+        believedDistance = distance;
+        if (distance < 0.05f)
         {
             if(followInternal == allPoints.Length - 1)
             {

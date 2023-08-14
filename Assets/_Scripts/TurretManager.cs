@@ -70,7 +70,7 @@ public class TurretManager : MonoBehaviour
             {
                 // check if reached goal position
                 float distance = Vector3.Distance(model.transform.localPosition, bottomPos.position);
-                if (distance < 0.05f)
+                if (distance < 0.05f || model.transform.localPosition.y < bottomPos.localPosition.y)
                 {
                     GameObject.Destroy(model);
                     currentTurret = null;
