@@ -14,6 +14,13 @@ public class TurretTargeting : MonoBehaviour
     [SerializeField] GameObject projectilesParent;
     [SerializeField] float midHeight;
     [SerializeField] GameObject emptyPrefab;
+    [SerializeField] GameObject explosionPrefab;
+
+    private void Awake()
+    {
+        if (EnemiesParent == null) { EnemiesParent = GameObject.Find("Enemies").transform; }
+        if(projectilesParent == null) { projectilesParent = GameObject.Find("Projectiles"); }
+    }
 
     // Update is called once per frame
     void Update()
@@ -85,6 +92,7 @@ public class TurretTargeting : MonoBehaviour
         tp.projectileSpeed = turret.projectileSpeed;
         tp.damage = turret.damage;
         tp.targetPositions = new List<GameObject> { midPoint, target };
+        tp.explosionPrefab = explosionPrefab;
     }
 
 

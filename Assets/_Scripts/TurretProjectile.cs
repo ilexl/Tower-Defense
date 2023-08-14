@@ -8,6 +8,7 @@ public class TurretProjectile : MonoBehaviour
     public int currentTarget = 0;
     public float projectileSpeed = 1;
     public int damage;
+    public GameObject explosionPrefab;
 
     // OnEnable is called when the script is enabled
     void OnEnable()
@@ -52,6 +53,11 @@ public class TurretProjectile : MonoBehaviour
         {
             enemy.TakeDamage(damage);
         }
+
+        if(explosionPrefab == null) { return; }
+
+        GameObject explosion = Instantiate(explosionPrefab, transform.parent);
+        explosion.transform.position = transform.position;
 
         Destroy(gameObject);
     }
