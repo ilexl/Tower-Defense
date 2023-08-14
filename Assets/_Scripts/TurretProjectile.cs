@@ -47,18 +47,19 @@ public class TurretProjectile : MonoBehaviour
     void Explode()
     {
         Debug.Log("Explosion needs implementing!");
-
-        bool isEnemy = targetPositions[currentTarget].TryGetComponent<Enemy>(out Enemy enemy);
-        if(isEnemy)
+        if (targetPositions[currentTarget] != null)
         {
-            enemy.TakeDamage(damage);
+            bool isEnemy = targetPositions[currentTarget].TryGetComponent<Enemy>(out Enemy enemy);
+            if(isEnemy)
+            {
+                enemy.TakeDamage(damage);
+            }
+
+            if(explosionPrefab == null) { return; }
+
+            GameObject explosion = Instantiate(explosionPrefab, transform.parent);
+            explosion.transform.position = transform.position;
         }
-
-        if(explosionPrefab == null) { return; }
-
-        GameObject explosion = Instantiate(explosionPrefab, transform.parent);
-        explosion.transform.position = transform.position;
-
         Destroy(gameObject);
     }
 }
