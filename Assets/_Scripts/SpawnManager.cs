@@ -20,7 +20,7 @@ public class SpawnManager : MonoBehaviour
     float lastSpawnTime = 0;
     [Tooltip("Makes the last wave repeat indefinitely")][SerializeField] bool endless;
 
-    void Start()
+    void Awake()
     {
         if(levels == null || levels.Length == 0) { return; }
         waveInternal = 0;

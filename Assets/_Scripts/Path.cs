@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
-using System.Collections;
-using static Codice.CM.Common.CmCallContext;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -67,6 +65,7 @@ public class Path : MonoBehaviour
         return;
     }
 
+
     /// <summary>
     /// validates data in the script
     /// </summary>
@@ -114,7 +113,11 @@ public class Path : MonoBehaviour
                 return;
             }
         }
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.delayCall += RedoTravel;
+#else
+    RedoTravel();
+#endif
     }
 
     /// <summary>

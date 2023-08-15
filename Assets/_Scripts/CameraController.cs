@@ -27,7 +27,14 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        ResetLook();
+        rotation.x += Input.GetAxisRaw("Mouse X") * middleMultiplier;
+        rotation.y += Input.GetAxisRaw("Mouse Y") * middleMultiplier;
+
+        rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
+        var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
+        var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
+
+        rotationHolder.localRotation = xQuat * yQuat;
     }
 
     // Update is called once per frame
