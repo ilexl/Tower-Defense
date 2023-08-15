@@ -46,7 +46,7 @@ public class TurretProjectile : MonoBehaviour
 
     void Explode()
     {
-        Debug.Log("Explosion needs implementing!");
+        //Debug.Log("Explosion needs implementing!");
         if (targetPositions[currentTarget] != null)
         {
             bool isEnemy = targetPositions[currentTarget].TryGetComponent<Enemy>(out Enemy enemy);

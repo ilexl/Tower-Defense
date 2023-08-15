@@ -16,7 +16,17 @@ public class SpawnManager : MonoBehaviour
     
     PathSpawn currentWave;
     int waveInternal = 0;
+    int levelInternal = 0;
     float lastSpawnTime = 0;
+    [Tooltip("Makes the last wave repeat indefinitely")][SerializeField] bool endless;
+
+    void Start()
+    {
+        if(levels == null || levels.Length == 0) { return; }
+        waveInternal = 0;
+        levelInternal = 0;
+        currentWave = levels[levelInternal];
+    }
 
     public void Wave(PathSpawn spawn)
     {
@@ -27,8 +37,21 @@ public class SpawnManager : MonoBehaviour
 
     public PathSpawn NextWave()
     {
-        Debug.Log("Next Wave!");
-        return null;
+        if (levelInternal == levels.Length - 1)
+        {
+            if(endless)
+            {
+                return levels[levelInternal];
+            }
+            else
+            {
+                return null;
+            }
+        }
+        else
+        {
+            return levels[++levelInternal];
+        }
     }
 
     public void SpawnOnPath(GameObject toSpawn, Path path)
