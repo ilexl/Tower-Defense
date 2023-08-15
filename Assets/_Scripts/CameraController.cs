@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] Transform CameraExtreme;
+    
+    [Space]
+
     [Header("Middle Move")]
     [SerializeField] Transform rotationHolder;
     [SerializeField] float middleMultiplier = 10.0f;
@@ -43,6 +47,15 @@ public class CameraController : MonoBehaviour
         Middle();
         Scroll();
         Move();
+        Clamp();
+    }
+
+    void Clamp()
+    {
+        float xClamped = Mathf.Clamp(moveHolder.position.x, -CameraExtreme.localScale.x/2 + CameraExtreme.position.x, CameraExtreme.localScale.x/2 + CameraExtreme.position.x);
+        float yClamped = Mathf.Clamp(moveHolder.position.y, -CameraExtreme.localScale.y/2 + CameraExtreme.position.y, CameraExtreme.localScale.y/2 + CameraExtreme.position.y);
+        float zClamped = Mathf.Clamp(moveHolder.position.z, -CameraExtreme.localScale.z/2 + CameraExtreme.position.z, CameraExtreme.localScale.z/2 + CameraExtreme.position.z);
+        moveHolder.position = new Vector3(xClamped, yClamped, zClamped);
     }
 
     void Scroll()
