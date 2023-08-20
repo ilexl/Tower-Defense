@@ -3620,9 +3620,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceToEnd: 0
   speed: 3
-  health: 100
+  health: 10
   Canvas: {fileID: 9024719144716766659}
   healthBar: {fileID: 9024719145352488636}
+  deathMoney: 100
 --- !u!136 &9024719143666996520
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ public class TurretShop : MonoBehaviour
         element.GetComponent<Button>().enabled = true;
         element.GetComponent<Button>().onClick.AddListener(delegate ()
         {
+            FindAnyObjectByType<Money>().ChangeBalance(-t.cost);
             tm.Construct(t);
         });
         return element;
@@ -42,7 +43,7 @@ public class TurretShop : MonoBehaviour
             {
                 return;
             }
-
+            //Debug.Log("Inactive");
             RemoveCurrent();
             foreach (Turret t in allTurrets)
             {
@@ -59,9 +60,13 @@ public class TurretShop : MonoBehaviour
         {
             if (state == tm.name + "C")
             {
+                foreach (Transform t in transform)
+                {
+                    t.GetComponent<Button>().interactable = false;
+                }
                 return;
             }
-
+            //Debug.Log("Construction");
             RemoveCurrent();
             foreach (Turret t in allTurrets)
             {
@@ -79,6 +84,7 @@ public class TurretShop : MonoBehaviour
                     element.GetComponent<Button>().interactable = false; // grey out while constructing
                 }
             }
+            
             state = tm.name + "C";
         }
         // is a turret here
@@ -86,8 +92,12 @@ public class TurretShop : MonoBehaviour
         {
             if (state == tm.name + "A")
             {
+                
                 return;
             }
+            //Debug.Log("Active");
+
+            
 
             RemoveCurrent();
             // DO UI HERE

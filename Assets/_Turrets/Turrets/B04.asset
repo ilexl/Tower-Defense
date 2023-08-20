@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelPrefab: {fileID: 1363839004370896, guid: 4d340d52485b55c4a829287417630657, type: 3}
   projectilePrefab: {fileID: 1162392375372998, guid: 9cc9b67118a3b7449b9308ad9dee2167, type: 3}
-  damage: 40
+  damage: 4
   icon: {fileID: 21300000, guid: 99abd068b83529a4bb5200e714726029, type: 3}
-  range: 20
-  reloadTime: 10
+  range: 3
+  reloadTime: 1.5
   projectileSpeed: 10
+  cost: 400
+  title: Normal Catapult - LVL 4

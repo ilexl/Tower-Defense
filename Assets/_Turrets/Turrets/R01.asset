@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelPrefab: {fileID: 1614482516865428, guid: 55a46933099382c41a8ef68631a51cc4, type: 3}
   projectilePrefab: {fileID: 1162392375372998, guid: 9cc9b67118a3b7449b9308ad9dee2167, type: 3}
-  damage: 10
+  damage: 2
   icon: {fileID: 21300000, guid: 877bf8226d9713348a14b7f26a15ac38, type: 3}
-  range: 15
-  reloadTime: 10
+  range: 3
+  reloadTime: 2.5
   projectileSpeed: 10
+  cost: 100
+  title: Ranged Catapult - LVL 1

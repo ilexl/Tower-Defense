@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelPrefab: {fileID: 1268973291984094, guid: 01caeb2c79c31864ba57555f2e2c8270, type: 3}
   projectilePrefab: {fileID: 1833988619539146, guid: 9318a11cd670f3d4f924ff92fe7b0c77, type: 3}
-  damage: 15
+  damage: 1
   icon: {fileID: 21300000, guid: bb1c49abd9c73a242894c47204e9507e, type: 3}
-  range: 15
-  reloadTime: 5
+  range: 4
+  reloadTime: 1
   projectileSpeed: 10
+  cost: 200
+  title: Ranged Missile - LVL 2

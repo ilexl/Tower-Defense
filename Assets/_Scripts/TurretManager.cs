@@ -15,10 +15,11 @@ public class TurretManager : MonoBehaviour
     [Space]
     [SerializeField] GameObject rangeShow;
     [SerializeField] BoxCollider mouseCollider;
-    [SerializeField] float rangeHeight = 5f;
+    [SerializeField] float rangeHeight = 10f;
     [SerializeField] bool rangeShown;
     [SerializeField] bool customRangeShown;
     [SerializeField] float customRange;
+    public int rangeMultiplier;
 
     public Turret GetCurrent() { return currentTurret; }
     public Turret GetBuilding() { return buildingTurret; }
@@ -217,6 +218,7 @@ public class TurretManager : MonoBehaviour
 
     private void ShowRange(float range)
     {
+        range *= rangeMultiplier;
         rangeShow.transform.localScale = new Vector3(range, rangeHeight, range);
     }
 }

@@ -31,7 +31,7 @@ public class TurretTargeting : MonoBehaviour
 
         foreach(Transform e in EnemiesParent)
         {
-            if (Vector3.Distance(transform.position, e.position) > turret.range)
+            if (Vector3.Distance(transform.position, e.position) > turret.range * manager.rangeMultiplier)
             {
                 continue; // not in range
             }

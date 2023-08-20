@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private int maxHealth;
     [SerializeField] GameObject Canvas;
     [SerializeField] GameObject healthBar;
+    [SerializeField] private int deathMoney;
 
     public float GetSpeed() { return speed; }
     public int GetHealth() { return health; }
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour
 
         if(health <= 0)
         {
+            FindAnyObjectByType<Money>().ChangeBalance(deathMoney);
             Destroy(gameObject);
         }
     }

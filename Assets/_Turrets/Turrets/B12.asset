@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelPrefab: {fileID: 1996158242419310, guid: 0a1a7d59358a3034faa852d2bc5bca64, type: 3}
   projectilePrefab: {fileID: 1552339098034316, guid: c66ffffeb79eaca47bb27b2a68fbe43b, type: 3}
-  damage: 15
+  damage: 2
   icon: {fileID: 21300000, guid: d1303ab6c59371e4b9446eb1d1540a3e, type: 3}
-  range: 15
-  reloadTime: 5
+  range: 3
+  reloadTime: 1.5
   projectileSpeed: 10
+  cost: 200
+  title: Normal Missile - LVL 2

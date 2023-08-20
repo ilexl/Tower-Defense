@@ -10,7 +10,6 @@ public class Select : MonoBehaviour
     public Transform selected;
     [SerializeField] GraphicRaycaster raycaster;
 
-    //replace Update method in your class with this one
     void Update()
     {
         //if mouse button (left hand side) pressed instantiate a raycast
@@ -40,29 +39,13 @@ public class Select : MonoBehaviour
 
 
         }
-        else
+        if(selected != null)
         {
-            if(selected == null) { return; }
-            PointerEventData pointerEventData = new(EventSystem.current)
+            bool valid = selected.TryGetComponent<TurretManager>(out TurretManager tm);
+            if(valid)
             {
-                position = Input.mousePosition
-            };
-            var raycastResults = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-
-            if (selected.TryGetComponent<TurretManager>(out TurretManager tm)) { tm.ShowRange(true); }
-            else { return; }
-
-            foreach (var result in raycastResults)
-            {
-                
-                bool valid = result.gameObject.TryGetComponent<TurretUI>(out TurretUI tUI);
-                if (valid)
-                {
-                    tm.ShowRangeCustom(true, tUI.turret.range);
-                }
+                tm.ShowRange(true);
             }
-
         }
     }
 

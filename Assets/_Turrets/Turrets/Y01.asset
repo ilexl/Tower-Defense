@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelPrefab: {fileID: 1629131875574716, guid: 20e59ffc0e4213749a2f25d96ab311d9, type: 3}
   projectilePrefab: {fileID: 1162392375372998, guid: 9cc9b67118a3b7449b9308ad9dee2167, type: 3}
-  damage: 10
+  damage: 4
   icon: {fileID: 21300000, guid: 83c5b1e0a193bef4d89336b58f7638ba, type: 3}
-  range: 15
-  reloadTime: 10
+  range: 1
+  reloadTime: 2.5
   projectileSpeed: 10
+  cost: 100
+  title: Close Catapult - LVL 1
