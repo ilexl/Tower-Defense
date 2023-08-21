@@ -36,8 +36,7 @@ public class WindowManager : MonoBehaviour
         int windowsAmount = 0;
         foreach (Transform _transform in transform)
         {
-            Window window = null;
-            bool successfullyFoundChildWindow =  _transform.TryGetComponent<Window>(out window);
+            bool successfullyFoundChildWindow = _transform.TryGetComponent<Window>(out Window window);
             if (successfullyFoundChildWindow)
             {
                 windowsAmount++;
@@ -48,8 +47,7 @@ public class WindowManager : MonoBehaviour
         int counter = 0;
         foreach (Transform _transform in transform)
         {
-            Window window = null;
-            bool successfullyFoundChildWindow = _transform.TryGetComponent<Window>(out window);
+            bool successfullyFoundChildWindow = _transform.TryGetComponent<Window>(out Window window);
             if (successfullyFoundChildWindow)
             {
                 Windows[counter++] = window;

@@ -9,7 +9,7 @@ public class FollowPath : MonoBehaviour
     [SerializeField] Enemy stats;
     float speed = 1f; // default is no speed found is 1f
     [SerializeField]int followInternal;
-    [SerializeField] float believedDistance;
+    //[SerializeField] float believedDistance;
     public void SetPath(Path _path)
     {
         path = _path;
@@ -51,13 +51,13 @@ public class FollowPath : MonoBehaviour
 
         transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
         float distance = Vector3.Distance(transform.position, allPoints[followInternal].transform.position);
-        believedDistance = distance;
+        //believedDistance = distance;
         if (distance < 0.05f)
         {
             if(followInternal == allPoints.Length - 1)
             {
                 // lose a life
-                Debug.Log("You lost a life!");
+                FindAnyObjectByType<Lives>().ChangeLives(-1);
                 gameObject.SetActive(false); // destroys this gameobject
             }
             else

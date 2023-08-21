@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Window : MonoBehaviour
 {
-    [SerializeField] public bool ShowOnStart = false;
+    public bool ShowOnStart = false;
 
     /// <summary>
     /// Shows the window
