@@ -15,6 +15,7 @@ public class HighScore : MonoBehaviour
     [SerializeField] GameObject newHighScoreMenu;
     [SerializeField] GameObject highScoreHolder;
     [SerializeField] GameObject highScorePrefab;
+    [SerializeField] TMPro.TextMeshProUGUI[] yourScores;
 
     void Awake()
     {
@@ -37,6 +38,7 @@ public class HighScore : MonoBehaviour
     }
     void UpdateHighScore()
     {
+        YourScore();
         LoadHighScores();
         for(int i = 0; i < amountMax; i++)
         {
@@ -92,6 +94,14 @@ public class HighScore : MonoBehaviour
             pos.GetComponent<TMPro.TextMeshProUGUI>().text = (i + 1).ToString() + ".";
             name.GetComponent<TMPro.TextMeshProUGUI>().text = highScoresNames[i];
             score.GetComponent<TMPro.TextMeshProUGUI>().text = "Score : " + highScores[i].ToString();
+        }
+    }
+
+    void YourScore()
+    {
+        foreach(TMPro.TextMeshProUGUI s in yourScores)
+        {
+            s.text = "You scored : " + score.GetScore().ToString() + " points!";
         }
     }
 }
