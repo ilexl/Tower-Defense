@@ -8,8 +8,7 @@ public class Point : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        MeshRenderer mr;
-        bool success = TryGetComponent<MeshRenderer>(out mr);
+        bool success = TryGetComponent(out MeshRenderer mr);
         if (success)
         {
             mr.enabled = (Application.isEditor);

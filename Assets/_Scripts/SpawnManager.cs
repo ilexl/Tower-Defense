@@ -1,9 +1,4 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -90,7 +85,7 @@ public class SpawnManager : MonoBehaviour
             if (!t.gameObject.activeSelf)
             {
                 // delete inactive enemies
-                GameObject.Destroy(t.gameObject);
+                Destroy(t.gameObject);
             }
         }
     }

@@ -28,8 +28,8 @@ public class Path : MonoBehaviour
     public void AddPoint()
     {
         middlePoints = middlePoints.Concat(new GameObject[] { GameObject.Instantiate(prefabMiddlePoint, middlePointsHolder.transform) }).ToArray();
-        middlePoints[middlePoints.Length - 1].name = middlePoints.Length.ToString() + "/" + middlePoints.Length.ToString();
-        middlePoints[middlePoints.Length - 1].transform.position = endPoint.transform.position;
+        middlePoints[^1].name = middlePoints.Length.ToString() + "/" + middlePoints.Length.ToString();
+        middlePoints[^1].transform.position = endPoint.transform.position;
         int index = 1;
         foreach(GameObject point in  middlePoints)
         {
@@ -50,7 +50,7 @@ public class Path : MonoBehaviour
         int index = 0;
         foreach (GameObject t in temp)
         {
-            if (t != temp[temp.Length - 1])
+            if (t != temp[^1])
             {
                 middlePoints[index++] = t;
                 if (t != null)
@@ -59,7 +59,7 @@ public class Path : MonoBehaviour
                 }
             }
         }
-        DestroyImmediate(temp[temp.Length - 1]);
+        DestroyImmediate(temp[^1]);
 
         RedoTravel();
         return;
@@ -125,7 +125,7 @@ public class Path : MonoBehaviour
     /// </summary>
     public void RedoTravel()
     {
-        List<GameObject> temp = new List<GameObject>();
+        List<GameObject> temp = new();
         foreach (Transform travelPoint in travelPointsHolder.transform)
         {
             temp.Add(travelPoint.gameObject);
@@ -142,7 +142,7 @@ public class Path : MonoBehaviour
         for (int i = 0; i < middlePoints.Length; i++)
         {
             current = middlePoints[i];
-            nextPoint = (current == middlePoints[middlePoints.Length - 1]) ? endPoint : middlePoints[i + 1];
+            nextPoint = (current == middlePoints[^1]) ? endPoint : middlePoints[i + 1];
             ComputeTravelBetween(current, nextPoint);
         } 
     }

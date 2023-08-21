@@ -14,8 +14,8 @@ public class Settings : MonoBehaviour
     [SerializeField] TMP_Dropdown resolutionDropdown;
     [SerializeField] int resolutionIndex = -1;
     Resolution[] resolutionsRaw = new Resolution[] { };
-    List<Resolution> resolutionsAllowed = new List<Resolution>();
-    [SerializeField]List<string> resolutionList = new List<string>();
+    readonly List<Resolution> resolutionsAllowed = new();
+    [SerializeField]List<string> resolutionList = new();
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);

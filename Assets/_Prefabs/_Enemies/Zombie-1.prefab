@@ -2223,7 +2223,6 @@ MonoBehaviour:
   allPoints: []
   stats: {fileID: 8192193066215789819}
   followInternal: 0
-  believedDistance: 0
 --- !u!114 &8192193066215789819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2242,6 +2241,7 @@ MonoBehaviour:
   Canvas: {fileID: 8192193067273882634}
   healthBar: {fileID: 8192193067649034101}
   deathMoney: 200
+  scoreAmount: 5
 --- !u!136 &8192193066215789793
 CapsuleCollider:
   m_ObjectHideFlags: 0
