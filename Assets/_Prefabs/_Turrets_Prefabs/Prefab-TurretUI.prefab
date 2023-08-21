@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8559690496929810293}
   - component: {fileID: 8559690496929810251}
   - component: {fileID: 7197869877194856294}
+  - component: {fileID: 8624712180707660966}
   m_Layer: 5
   m_Name: Prefab-TurretUI
   m_TagString: Untagged
@@ -134,3 +135,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e770eeeb29e53e4ab569f793b5aaf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turret: {fileID: 0}
+  money: {fileID: 0}
+--- !u!114 &8624712180707660966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8559690496929810295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []

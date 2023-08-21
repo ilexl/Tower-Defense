@@ -14,6 +14,7 @@ public class TurretTargeting : MonoBehaviour
     [SerializeField] float midHeight;
     [SerializeField] GameObject emptyPrefab;
     [SerializeField] GameObject explosionPrefab;
+    [SerializeField] SoundManager soundManager;
 
     private void Awake()
     {
@@ -92,6 +93,7 @@ public class TurretTargeting : MonoBehaviour
         tp.damage = turret.damage;
         tp.targetPositions = new List<GameObject> { midPoint, target };
         tp.explosionPrefab = explosionPrefab;
+        tp.soundManager = soundManager;
     }
 
 

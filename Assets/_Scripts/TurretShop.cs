@@ -1,6 +1,8 @@
+using PlasticGui.EventTracking;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TurretShop : MonoBehaviour
@@ -11,6 +13,7 @@ public class TurretShop : MonoBehaviour
     [SerializeField] GameObject turretUIPrefab;
     string state;
     TurretManager tm = null;
+    [SerializeField]SoundManager soundManager;
 
     void RemoveCurrent()
     {
@@ -26,6 +29,13 @@ public class TurretShop : MonoBehaviour
         element.GetComponent<Image>().sprite = t.icon;
         element.GetComponent<TurretUI>().turret = t;
         element.GetComponent<Button>().enabled = true;
+
+        EventTrigger trigger = element.GetComponent<EventTrigger>();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+        entry.callback.AddListener((data) => { soundManager.PlaySound(1); });
+        trigger.triggers.Add(entry);
+
         element.GetComponent<Button>().onClick.AddListener(delegate ()
         {
             FindAnyObjectByType<Money>().ChangeBalance(-t.cost);

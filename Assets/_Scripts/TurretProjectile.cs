@@ -9,6 +9,7 @@ public class TurretProjectile : MonoBehaviour
     public float projectileSpeed = 1;
     public int damage;
     public GameObject explosionPrefab;
+    public SoundManager soundManager;
 
     // OnEnable is called when the script is enabled
     void OnEnable()
@@ -46,6 +47,7 @@ public class TurretProjectile : MonoBehaviour
 
     void Explode()
     {
+        soundManager.PlaySoundInWorldSpace(0, transform.position);
         //Debug.Log("Explosion needs implementing!");
         if (targetPositions[currentTarget] != null)
         {
@@ -55,11 +57,10 @@ public class TurretProjectile : MonoBehaviour
                 enemy.TakeDamage(damage);
             }
 
-            if(explosionPrefab == null) { return; }
-
-            GameObject explosion = Instantiate(explosionPrefab, transform.parent);
-            explosion.transform.position = transform.position;
+            
         }
+        GameObject explosion = Instantiate(explosionPrefab, transform.parent);
+        explosion.transform.position = transform.position;
         Destroy(gameObject);
     }
 }

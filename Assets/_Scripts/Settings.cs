@@ -100,5 +100,9 @@ public class Settings : MonoBehaviour
         SetValueLoad();
     }
 
-
+    private void OnDisable()
+    {
+        GetResolutions();
+        SetValueLoad();
+    }
 }

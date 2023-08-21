@@ -9,6 +9,7 @@ public class PlaySelect : MonoBehaviour
     [SerializeField] int campaignSceneIndex = 1;
     [SerializeField] int multiplayerSceneIndex = 1;
     [SerializeField] int titleSceneIndex = 1;
+    [SerializeField] int highScoreIndex = 1;
     public void Campaign()
     {
         SceneManager.LoadScene(campaignSceneIndex);
@@ -27,5 +28,10 @@ public class PlaySelect : MonoBehaviour
     public void TitleScreen()
     {
         SceneManager.LoadScene(titleSceneIndex);
+    }
+
+    public void HighScore()
+    {
+        SceneManager.LoadScene(highScoreIndex);
     }
 }

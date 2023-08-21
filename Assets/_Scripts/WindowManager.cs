@@ -8,6 +8,7 @@ using UnityEditor;
 public class WindowManager : MonoBehaviour
 {
     [SerializeField] private Window[] Windows;
+    [SerializeField] private bool startFeature = true;
     // Awake is called when the WM is loading
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class WindowManager : MonoBehaviour
 
     private void Start()
     {
+        if (!startFeature) { return; }
         foreach(Window window in Windows)
         {
             if (window.ShowOnStart)
