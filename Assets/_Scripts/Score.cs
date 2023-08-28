@@ -11,6 +11,6 @@ public class Score : MonoBehaviour
     }
     public int GetScore() { return currentScore; }
     public void SaveCurrentScore() { PlayerPrefs.SetInt("LEGNER-STUDIO-GAME*TD*" + "LIVESCORE", currentScore); }
-    public void LoadCurrentScore() { currentScore = PlayerPrefs.GetInt("LEGNER-STUDIO-GAME*TD*" + "LIVESCORE", 0); }
-    public void ResetScore() { currentScore = 0; } 
+    public void LoadCurrentScore() { currentScore = PlayerPrefs.GetInt("LEGNER-STUDIO-GAME*TD*" + "LIVESCORE", -1); }
+    public void ResetScore() { currentScore = -1; } 
 }

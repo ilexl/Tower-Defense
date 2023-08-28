@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -18,6 +19,9 @@ public class SpawnManager : MonoBehaviour
     float timeBetweenInternal;
     [Tooltip("Makes the last wave repeat indefinitely")][SerializeField] bool endless;
 
+    [SerializeField] Slider waveSlider;
+    [SerializeField] TMPro.TextMeshProUGUI waveText;
+
     void Awake()
     {
         if(levels == null || levels.Length == 0) { return; }
@@ -36,6 +40,8 @@ public class SpawnManager : MonoBehaviour
 
     public PathSpawn NextWave()
     {
+        waveSlider.value = 1 - (timeBetweenInternal / timeBetween);
+        waveText.text = "Next Wave NOW";
         if (levelInternal == levels.Length - 1)
         {
             if(endless)
@@ -55,6 +61,10 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    public void StartNextWave()
+    {
+        timeBetweenInternal = -1;
+    }
     public void SpawnOnPath(GameObject toSpawn, Path path)
     {
         Debug.Log("Spawned @");
@@ -86,6 +96,8 @@ public class SpawnManager : MonoBehaviour
                 if(timeBetweenInternal > 0)
                 {
                     timeBetweenInternal -= Time.deltaTime;
+                    waveSlider.value = 1 - (timeBetweenInternal / timeBetween);
+                    waveText.text = "Next Wave In " + ((int)timeBetweenInternal).ToString() + "s";
                 }
                 else
                 {

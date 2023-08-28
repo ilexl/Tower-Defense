@@ -355,6 +355,9 @@ MonoBehaviour:
   newHighScoreMenu: {fileID: 101994183}
   highScoreHolder: {fileID: 629680700}
   highScorePrefab: {fileID: 167458297847630309, guid: 0a72a907ad67b2341b509d2ab2e98e9c, type: 3}
+  yourScores:
+  - {fileID: 895634987}
+  - {fileID: 305862692}
 --- !u!114 &196876707
 MonoBehaviour:
   m_ObjectHideFlags: 0

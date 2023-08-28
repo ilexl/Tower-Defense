@@ -7,22 +7,23 @@ public class HighScore : MonoBehaviour
     [SerializeField] int amountMax;
     [SerializeField] Score score;
     [SerializeField] WindowManager windowManager;
-    [SerializeField] List<int> highScores;
-    [SerializeField] List<string> highScoresNames;
+    [SerializeField] List<int> highScores = new();
+    [SerializeField] List<string> highScoresNames = new();
 
     [SerializeField] int newHighScoreIndex;
     [SerializeField] TMPro.TMP_InputField input;
     [SerializeField] GameObject newHighScoreMenu;
     [SerializeField] GameObject highScoreHolder;
     [SerializeField] GameObject highScorePrefab;
-    [SerializeField] TMPro.TextMeshProUGUI[] yourScores;
+    [SerializeField] TMPro.TextMeshProUGUI[] yourScores; 
 
     void Awake()
     {
+        Debug.Log("HERE");
         newHighScoreMenu.SetActive(false);
         score.LoadCurrentScore();
         int savedScore = score.GetScore();
-        if (savedScore == 0)
+        if (savedScore == -1)
         {
             // Show the high score list - no change
             windowManager.ShowWindow(0);
