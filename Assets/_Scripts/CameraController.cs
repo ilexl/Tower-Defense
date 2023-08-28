@@ -39,6 +39,8 @@ public class CameraController : MonoBehaviour
         var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
 
         rotationHolder.localRotation = xQuat * yQuat;
+
+        ResetLook();
     }
 
     // Update is called once per frame
@@ -91,6 +93,15 @@ public class CameraController : MonoBehaviour
         rotationHolder.rotation = Quaternion.Euler(resetRotation);
         rotation = (Vector2)resetRotation;
         rotationHolder.position = rotationHolderResetPosition;
+
+        rotation.x = resetRotation.y;
+        rotation.y = -resetRotation.x;
+
+        rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
+        var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
+        var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
+
+        rotationHolder.localRotation = xQuat * yQuat;
     }
 
     void Middle()

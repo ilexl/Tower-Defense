@@ -24,12 +24,12 @@ MonoBehaviour:
   - {fileID: 9024719143666996531, guid: 496a2b2a613f9614db4924727ecd05af, type: 3}
   - {fileID: 9024719143666996531, guid: 496a2b2a613f9614db4924727ecd05af, type: 3}
   timeBetweenEnemy:
-  - 3
   - 1
   - 1
   - 1
   - 1
-  - 5
+  - 1
+  - 1
   - 1
   - 1
   - 1

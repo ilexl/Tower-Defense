@@ -6,6 +6,8 @@ using UnityEditor;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField] float timeBetween;
+    [SerializeField] float timeStart = 10f;
     [SerializeField] Path path;
     public PathSpawn[] levels;
     
@@ -13,6 +15,7 @@ public class SpawnManager : MonoBehaviour
     int waveInternal = 0;
     int levelInternal = 0;
     float lastSpawnTime = 0;
+    float timeBetweenInternal;
     [Tooltip("Makes the last wave repeat indefinitely")][SerializeField] bool endless;
 
     void Awake()
@@ -21,6 +24,7 @@ public class SpawnManager : MonoBehaviour
         waveInternal = 0;
         levelInternal = 0;
         currentWave = levels[levelInternal];
+        timeBetweenInternal = timeStart;
     }
 
     public void Wave(PathSpawn spawn)
@@ -36,6 +40,7 @@ public class SpawnManager : MonoBehaviour
         {
             if(endless)
             {
+                timeBetweenInternal = timeBetween;
                 return levels[levelInternal];
             }
             else
@@ -45,6 +50,7 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
+            timeBetweenInternal = timeBetween;
             return levels[++levelInternal];
         }
     }
@@ -77,7 +83,14 @@ public class SpawnManager : MonoBehaviour
             }
             else
             {
-                Wave(NextWave());
+                if(timeBetweenInternal > 0)
+                {
+                    timeBetweenInternal -= Time.deltaTime;
+                }
+                else
+                {
+                    Wave(NextWave());
+                }
             }
         }
         foreach (Transform t in transform)
