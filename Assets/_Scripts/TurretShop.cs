@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class TurretShop : MonoBehaviour
 {
@@ -24,8 +25,9 @@ public class TurretShop : MonoBehaviour
     GameObject AddTurretShop(Turret t)
     {
         GameObject element = GameObject.Instantiate(turretUIPrefab, this.transform);
-        element.GetComponent<Image>().sprite = t.icon;
         element.GetComponent<TurretUI>().turret = t;
+        element.GetComponent<TurretUI>().image.sprite = element.GetComponent<TurretUI>().turret.icon;
+        element.GetComponent<TurretUI>().text.text = element.GetComponent<TurretUI>().turret.title + "\nCost : $" + element.GetComponent<TurretUI>().turret.cost.ToString();
         element.GetComponent<Button>().enabled = true;
 
         element.GetComponent<Button>().onClick.AddListener(delegate ()
