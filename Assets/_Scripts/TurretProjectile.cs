@@ -15,6 +15,10 @@ public class TurretProjectile : MonoBehaviour
     void OnEnable()
     {
         currentTarget = 0;
+
+
+
+
     }
 
     // Update is called once per frame

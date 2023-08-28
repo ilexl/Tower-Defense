@@ -20,6 +20,7 @@ public class TurretTargeting : MonoBehaviour
     {
         if (EnemiesParent == null) { EnemiesParent = GameObject.Find("Enemies").transform; }
         if(projectilesParent == null) { projectilesParent = GameObject.Find("Projectiles"); }
+        if(soundManager == null) { soundManager = GameObject.Find("SoundGame").GetComponent<SoundManager>(); }
     }
 
     // Update is called once per frame

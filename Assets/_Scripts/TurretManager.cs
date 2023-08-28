@@ -21,6 +21,11 @@ public class TurretManager : MonoBehaviour
     [SerializeField] float customRange;
     public int rangeMultiplier;
 
+    [Space]
+    [SerializeField] Material normal;
+    [SerializeField] Material highlighted;
+    [SerializeField] GameObject recolour;
+
     public Turret GetCurrent() { return currentTurret; }
     public Turret GetBuilding() { return buildingTurret; }
 
@@ -126,6 +131,7 @@ public class TurretManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        recolour.GetComponent<MeshRenderer>().material = normal;
         switch (GetState())
         {
             case State.Active:
@@ -149,9 +155,10 @@ public class TurretManager : MonoBehaviour
                 break; // return to stop unwasted processing power
             }
         }
-        
+            
         if (rangeShown)
         {
+            recolour.GetComponent<MeshRenderer>().material = highlighted;
             if (state == State.Construction)
             {
                 rangeShow.SetActive(false);

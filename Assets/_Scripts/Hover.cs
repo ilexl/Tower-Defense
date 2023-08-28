@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Hover : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class Hover : MonoBehaviour
         EventSystem.current.RaycastAll(pointerEventData, raycastResults);
         foreach (var result in raycastResults)
         {
-            bool valid = result.gameObject.TryGetComponent<TurretUI>(out TurretUI tUI);
+            TurretUI tUI = result.gameObject.GetComponentInParent<TurretUI>();
+            bool valid = (tUI != null);
             if(valid) { hover = tUI.transform; }
             
             if (select.selected == null) { break; }
