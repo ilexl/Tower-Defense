@@ -43,7 +43,7 @@ public class TurretInfo : MonoBehaviour
             title.text = target.title;
             damage.value = 5 - target.damage;
             range.value = 5 - target.range;
-            int reloadValue = (int)(target.reloadTime * 2);
+            int reloadValue = (int)(target.reloadTime * 2) + 1;
             reload.value = reloadValue;
         }
         else

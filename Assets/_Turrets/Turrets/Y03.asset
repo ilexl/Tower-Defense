@@ -17,7 +17,7 @@ MonoBehaviour:
   damage: 5
   icon: {fileID: 21300000, guid: 48d2f7a8183bdbf4a9e1cea292a3a56e, type: 3}
   range: 2
-  reloadTime: 2
+  reloadTime: 2.5
   projectileSpeed: 10
-  cost: 300
+  cost: 400
   title: Close Catapult  L3

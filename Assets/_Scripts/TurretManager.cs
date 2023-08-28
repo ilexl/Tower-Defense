@@ -158,12 +158,12 @@ public class TurretManager : MonoBehaviour
             
         if (rangeShown)
         {
-            recolour.GetComponent<MeshRenderer>().material = highlighted;
             if (state == State.Construction)
             {
                 rangeShow.SetActive(false);
                 return;
             }
+            recolour.GetComponent<MeshRenderer>().material = highlighted;
             rangeShow.SetActive(true);
             
             if (customRangeShown)

@@ -19,5 +19,5 @@ MonoBehaviour:
   range: 5
   reloadTime: 0.5
   projectileSpeed: 10
-  cost: 300
+  cost: 400
   title: Ranged Missile  L3

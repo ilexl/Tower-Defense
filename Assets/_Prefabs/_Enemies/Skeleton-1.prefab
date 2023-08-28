@@ -227,11 +227,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToEnd: 0
-  speed: 2
+  speed: 1
   health: 5
   Canvas: {fileID: 2720763244322849479}
   healthBar: {fileID: 2720763243875920312}
-  deathMoney: 20
+  deathMoney: 10
   scoreAmount: 1
 --- !u!136 &2720763243231402540
 CapsuleCollider:

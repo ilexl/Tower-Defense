@@ -17,7 +17,7 @@ MonoBehaviour:
   damage: 3
   icon: {fileID: 21300000, guid: 0edaeccda48ed4b45b18de08df59b2dd, type: 3}
   range: 2
-  reloadTime: 1
+  reloadTime: 1.5
   projectileSpeed: 10
   cost: 100
   title: Close Missile  L1

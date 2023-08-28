@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelPrefab: {fileID: 1778420177037490, guid: a1ca6d1e1cb0b5843ba9b44ef4a7886a, type: 3}
   projectilePrefab: {fileID: 1162392375372998, guid: 9cc9b67118a3b7449b9308ad9dee2167, type: 3}
-  damage: 3
+  damage: 2
   icon: {fileID: 21300000, guid: 4e3e974c8d5a07247a8fb4cb31821f18, type: 3}
   range: 4
   reloadTime: 2.5

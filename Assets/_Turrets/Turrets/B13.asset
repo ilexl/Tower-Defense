@@ -19,5 +19,5 @@ MonoBehaviour:
   range: 3
   reloadTime: 1
   projectileSpeed: 10
-  cost: 300
+  cost: 400
   title: Normal Missile  L3

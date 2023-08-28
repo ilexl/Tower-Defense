@@ -16,8 +16,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1162392375372998, guid: 9cc9b67118a3b7449b9308ad9dee2167, type: 3}
   damage: 4
   icon: {fileID: 21300000, guid: b47f4811662e4094485e8a151156f47c, type: 3}
-  range: 1
+  range: 2
   reloadTime: 2.5
   projectileSpeed: 10
   cost: 200
-  title: Close Catapult   L1
+  title: Close Catapult  L2

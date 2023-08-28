@@ -385,6 +385,7 @@ MonoBehaviour:
   emptyPrefab: {fileID: 1622351075045497682, guid: bb733d69cb14bf642ac383f672c4e8dc, type: 3}
   explosionPrefab: {fileID: 4106352244482043775, guid: e4f0e4444a81ec74cbfcc074e07ba68f, type: 3}
   soundManager: {fileID: 0}
+  damageMultiplier: 1
 --- !u!65 &1031671402410359545
 BoxCollider:
   m_ObjectHideFlags: 0

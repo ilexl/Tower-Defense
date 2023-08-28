@@ -13,6 +13,7 @@ public class TurretShop : MonoBehaviour
     [SerializeField] GameObject turretUIPrefab;
     string state;
     TurretManager tm = null;
+    TurretManager tmCurrent = null;
 
     void RemoveCurrent()
     {
@@ -32,8 +33,11 @@ public class TurretShop : MonoBehaviour
 
         element.GetComponent<Button>().onClick.AddListener(delegate ()
         {
-            FindAnyObjectByType<Money>().ChangeBalance(-t.cost);
-            tm.Construct(t);
+            if(tm.GetState() != TurretManager.State.Construction)
+            {
+                FindAnyObjectByType<Money>().ChangeBalance(-t.cost);
+                tm.Construct(t);
+            }
         });
         return element;
     }
@@ -136,9 +140,16 @@ public class TurretShop : MonoBehaviour
             return;
         }
 
-        tm = null;
-        if (selectedObject.selected.TryGetComponent<TurretManager>(out tm))
+        tmCurrent = null;
+        if (selectedObject.selected.TryGetComponent<TurretManager>(out tmCurrent))
         {
+            if(tmCurrent != tm) 
+            {
+                RemoveCurrent();
+                state = "";
+                tm = tmCurrent;
+                return; 
+            }
             TurretShopMenu();
         }
 

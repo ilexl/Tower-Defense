@@ -18,7 +18,9 @@ MonoBehaviour:
   - {fileID: 2720763243231402551, guid: 47c5bce05c712b14aac70c83acd62419, type: 3}
   - {fileID: 2720763243231402551, guid: 47c5bce05c712b14aac70c83acd62419, type: 3}
   - {fileID: 2720763243231402551, guid: 47c5bce05c712b14aac70c83acd62419, type: 3}
+  - {fileID: 2720763243231402551, guid: 47c5bce05c712b14aac70c83acd62419, type: 3}
   timeBetweenEnemy:
+  - 1
   - 1
   - 1
   - 1
