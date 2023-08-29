@@ -8,7 +8,7 @@ public class Pause : MonoBehaviour
     [SerializeField] KeyCode pauseKey;
     [SerializeField] GameObject gameLogic;
     [SerializeField] WindowManager windowManager;
-    [SerializeField] bool paused;
+    public bool paused;
 
     // Update is called once per frame
     void Update()
