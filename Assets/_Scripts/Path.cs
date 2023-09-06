@@ -126,6 +126,7 @@ public class Path : MonoBehaviour
     public void RedoTravel()
     {
         List<GameObject> temp = new();
+        if(travelPointsHolder == null) { return; }
         foreach (Transform travelPoint in travelPointsHolder.transform)
         {
             temp.Add(travelPoint.gameObject);

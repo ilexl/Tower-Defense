@@ -1562,7 +1562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &175504374
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2768,7 +2768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.9545104, y: 1}
-  m_AnchoredPosition: {x: 2.5005035, y: 0}
+  m_AnchoredPosition: {x: 2.5005188, y: 0}
   m_SizeDelta: {x: -5.0011, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &249465290
@@ -5697,7 +5697,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: High Score (Endless)
+  m_text: "High Scores \n(Endless)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d3db5f090714c0344a64e446145637a0, type: 2}
   m_sharedMaterial: {fileID: 7080541068048467155, guid: d3db5f090714c0344a64e446145637a0, type: 2}
@@ -5724,7 +5724,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.25
+  m_fontSize: 31.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
